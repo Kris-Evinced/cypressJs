@@ -1,0 +1,62 @@
+{
+  "name": "@evinced/cypress-sdk",
+  "version": "4.7.0",
+  "description": "Evinced SDK for Cypress",
+  "main": "dist/ev-cypress-sdk.bundle.js",
+  "types": "dist/ev-cypress-sdk.bundle.d.ts",
+  "files": [
+    "package.json",
+    "dist/ev-cypress-sdk.bundle.js",
+    "dist/ev-cypress-sdk.bundle.d.ts",
+    "dist/evCommands.d.ts",
+    "dist/axe.d.ts",
+    "LICENSE.md"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "build": "npm run lint && webpack --config webpack.config.js",
+    "build:debug": "npm run lint && webpack --config webpack.config.js --mode=development --devtool=eval-source-map",
+    "dev": "npm run lint && webpack --config webpack.config.js --watch",
+    "test:debug": "npm run build:debug && cd tests && cypress open",
+    "test": "npm run build && cd tests && npx cypress run --browser chrome --headless",
+    "test:o": "npm run build && cd tests && npx cypress open",
+    "test:dev": "concurrently \"npm run dev\" \"cd tests && npx cypress open\""
+  },
+  "author": {
+    "name": "Evinced Ltd",
+    "url": "https://www.evinced.com/"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@evinced-private/analysis-web": "14.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "axios": "^1.6.0",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^6.0.0",
+    "copy-webpack-plugin": "^8.1.0",
+    "cypress": "^10.11.0",
+    "deepmerge-ts": "^5.1.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-import": "^2.22.1",
+    "raw-loader": "^4.0.2",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.3.5",
+    "uuid": "^3.4.0",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^5.0.0",
+    "process": "^0.11.10"
+  }
+}
