@@ -1,12 +1,11 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from "Cypress";
 import Evinced from "@evinced/cypress-sdk";
-import { createRequire } from 'module';
+import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
 
-const os = require('os');
+const os = require("os");
 export default defineConfig({
-  
   e2e: {
     setupNodeEvents(on) {
       // This is how you should upload to platform with Cypress
@@ -15,10 +14,13 @@ export default defineConfig({
       });
     },
   },
-  
+
   env: {
-    // To disable the feature just comment out the whole evReporterOptions entry.
+    serviceId: process.env.EVINCED_SERVICE_ID,
+    secret: process.env.EVINCED_API_KEY,
+
     evincedConfig: {
+          // To disable the feature just comment out the whole evReporterOptions entry.
       reporterOptions: {
         reportFormat: "html", // Sets a desired format for the report. Available options are: html, sarif, and json.
         filePath: "./evincedReports/aggregatedReport.html", // Specifies a path to the final aggregated report file.
@@ -28,4 +30,3 @@ export default defineConfig({
     },
   },
 });
-

@@ -25,8 +25,8 @@ Evinced.init({
 
 // Configure Online Credentials
 Evinced.setCredentials({
-    serviceId: Cypress.env('EVINCED_SERVICE_ID'),
-    secret: Cypress.env('EVINCED_API_KEY'),
+    serviceId: Cypress.env('serviceId'),
+    secret: Cypress.env('secret'),
   });
 
 // Configure upload to platform
