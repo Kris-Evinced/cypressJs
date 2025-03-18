@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@evinced/cypress-sdk": "file:cypress-sdk-4.7.0.tgz",
+    "@evinced/cypress-sdk": "file:cypress-sdk-4.9.0.tgz",
     "cypress": "^14.1.0",
     "pwd": "^1.1.0"
   }
